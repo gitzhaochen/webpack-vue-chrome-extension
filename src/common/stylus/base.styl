@@ -1,0 +1,47 @@
+@import "variable.styl"
+
+body, html {
+    font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback'
+    user-select: text
+    -webkit-tap-highlight-color: transparent
+    font-size $text-size-md
+    background #fff
+    overflow-x: hidden;
+}
+
+a {
+    color #333
+    text-decoration none
+}
+
+.clearfix {
+    &:after {clear:both;content:'.';display:block;width: 0;height: 0;visibility:hidden;}
+}
+.fl {
+    float left
+}
+.fr {
+    float right
+}
+.pr{
+    position relative
+}
+.pa{
+    position absolute
+}
+.section{
+    padding 150px 0
+}
+
+.container {
+    position:relative;
+    margin:0 auto;
+    width: 1000px;
+}
+.t-center{
+    text-align center
+}
+.t-right{
+    text-align right
+}
+

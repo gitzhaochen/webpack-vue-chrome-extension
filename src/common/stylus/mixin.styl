@@ -1,0 +1,24 @@
+@import "../../common/stylus/variable.styl"
+
+//单行省略
+single-line() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+//多行省略
+more-line-ellipsis(n) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: n;
+    overflow: hidden;
+}
+
+//垂直居中
+x-y-center() {
+    position absolute
+    left 50%
+    top 50%
+    transform translate3d(-50%, -50%, 0)
+}

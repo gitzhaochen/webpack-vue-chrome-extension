@@ -1,0 +1,41 @@
+{
+  "name": "primas-chrome-extension",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "primas-chrome-extension",
+  "icons": {
+    "32": "assets/icons/logo32.png",
+    "38": "assets/icons/logo38.png",
+    "40": "assets/icons/logo40.png",
+    "128": "assets/icons/logo128.png",
+    "256": "assets/icons/logo256.png"
+  },
+  "background": {
+    "scripts": [
+      "./background.js"
+    ]
+  },
+  "permissions": [
+    "http://*/*",
+    "https://*/*",
+    "background",
+    "tabs",
+    "webRequest",
+    "activeTab",
+    "storage"
+  ],
+  "web_accessible_resources": [
+    "element-icons.ttf",
+    "element-icons.woff"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "browser_action": {
+    "default_popup": "./popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["./contentScripts/index.js"]
+    }
+  ]
+}
