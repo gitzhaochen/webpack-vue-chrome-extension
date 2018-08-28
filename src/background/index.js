@@ -68,3 +68,6 @@ chrome.runtime.onConnectExternal.addListener(
 
     }
 );
+if(process.env.NODE_ENV==='development'){
+    require('./hot-reload.js');
+}
