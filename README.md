@@ -1,4 +1,3 @@
-
 ## 说明
 * 采用mozilla抓取算法 <a target="_blank" href="https://github.com/mozilla/readability">https://github.com/mozilla/readability</a>
 * 插件已发布到谷歌商店 <a target="_blank" href="https://chrome.google.com/webstore/detail/primas-chrome-extension/ladpkekffaloaldlbkbgdoemipecoipi">点击查看</a>
@@ -8,4 +7,4 @@
 * cnpm install
 * cnpm run dev
 * cnpm run stag
-* cnpm run build
+* cnpm run build --manifest=版本号

@@ -2,6 +2,8 @@ const path = require('path')
 const fs = require('fs')
 const srcDir = path.join(__dirname, '../src')
 const env = process.env.NODE_ENV;
+const manifest =process.env.npm_config_manifest;
+
 let files = [
     {
         source_development: '/env/development/manifest.json',
@@ -29,8 +31,34 @@ let files = [
     }
 
 ];
+//更改manifest version
+const update_manifest = file =>
+    new Promise((resolve, reject) => {
+        fs.readFile(file, 'utf8', (err, data) => {
+            if (err) {
+                reject(err)
+                return
+            };
+            let regex=/"version":.*?",/
+            // eslint-disable-next-line
+            data = data.replace(regex, `"version":"${manifest}",`);
+            // eslint-disable-next-line
+            fs.writeFile(file, data, err => {
+                if (err) {
+                    reject(err)
+                    return
+                }
 
-function main() {
+                resolve()
+            })
+        })
+    });
+async function main() {
+    if(env==='production'){
+        let file=path.join(srcDir, files[0][`source_${env}`]);
+        let res=await update_manifest(file);
+        console.log(file)
+    };
     files.forEach((file)=>{
         let source=path.join(srcDir, file[`source_${env}`]);
         let target=path.join(srcDir, file.target);
